@@ -494,6 +494,14 @@ export type Database = {
         Args: { _email: string; _full_name: string }
         Returns: string
       }
+      generate_demo_history: {
+        Args: { _from: string; _profile_id: string; _to: string }
+        Returns: undefined
+      }
+      generate_salary_slip: {
+        Args: { _month: string; _profile_id: string }
+        Returns: string
+      }
     }
     Enums: {
       app_role: "admin" | "hr" | "employee"
