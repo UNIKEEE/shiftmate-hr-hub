@@ -87,7 +87,6 @@ function Landing() {
             </Link>
             <Link
               to="/auth"
-              search={{ mode: "signin" }}
               className="rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
             >
               I already have an account
