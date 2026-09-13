@@ -494,15 +494,6 @@ export type Database = {
         Args: { _email: string; _full_name: string }
         Returns: string
       }
-      current_profile_id: { Args: never; Returns: string }
-      has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
-      is_staff: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
       app_role: "admin" | "hr" | "employee"
