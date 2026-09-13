@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Shiftmate HR Hub
+
+Build Shiftmate, a comprehensive employee attendance and HR web app featuring role-based dashboards (Employee, HR/Manager, Admin), clock in/out with validation, interactive shift calendars, leave request and approval workflows, attendance correction requests with audit trails, salary slips with detailed deduction breakdowns, beige/light/dark themes, and realistic demo data.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/fc3fae7d-81ac-4848-bd7c-890179b1e894).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
