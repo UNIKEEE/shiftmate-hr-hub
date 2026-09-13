@@ -490,9 +490,56 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      apply_correction: { Args: { _correction_id: string }; Returns: undefined }
       bootstrap_current_user: {
         Args: { _email: string; _full_name: string }
         Returns: string
+      }
+      clock_in: {
+        Args: { _note?: string }
+        Returns: {
+          clock_in: string | null
+          clock_out: string | null
+          created_at: string
+          early_leave_minutes: number
+          id: string
+          late_minutes: number
+          note: string | null
+          profile_id: string
+          status: Database["public"]["Enums"]["attendance_status"]
+          updated_at: string
+          work_date: string
+          worked_minutes: number
+        }
+        SetofOptions: {
+          from: "*"
+          to: "attendance_records"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
+      clock_out: {
+        Args: { _note?: string }
+        Returns: {
+          clock_in: string | null
+          clock_out: string | null
+          created_at: string
+          early_leave_minutes: number
+          id: string
+          late_minutes: number
+          note: string | null
+          profile_id: string
+          status: Database["public"]["Enums"]["attendance_status"]
+          updated_at: string
+          work_date: string
+          worked_minutes: number
+        }
+        SetofOptions: {
+          from: "*"
+          to: "attendance_records"
+          isOneToOne: true
+          isSetofReturn: false
+        }
       }
       generate_demo_history: {
         Args: { _from: string; _profile_id: string; _to: string }
