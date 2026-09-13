@@ -49,19 +49,31 @@ function AuthPage() {
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
     const parsed = credentials.safeParse({ email, password });
-    if (!parsed.success) return toast.error(parsed.error.issues[0]!.message);
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]!.message);
+      return;
+    }
     setLoading(true);
     const { error } = await supabase.auth.signInWithPassword(parsed.data);
     setLoading(false);
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     navigate({ to: "/dashboard", replace: true });
   }
 
   async function signUp(e: React.FormEvent) {
     e.preventDefault();
     const parsed = credentials.safeParse({ email, password });
-    if (!parsed.success) return toast.error(parsed.error.issues[0]!.message);
-    if (fullName.trim().length < 2) return toast.error("Please enter your full name");
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]!.message);
+      return;
+    }
+    if (fullName.trim().length < 2) {
+      toast.error("Please enter your full name");
+      return;
+    }
     setLoading(true);
     const { data, error } = await supabase.auth.signUp({
       ...parsed.data,
@@ -71,7 +83,10 @@ function AuthPage() {
       },
     });
     setLoading(false);
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     if (!data.session) {
       toast.success("Check your email to confirm your account, then sign in.");
       return;
@@ -86,7 +101,8 @@ function AuthPage() {
     });
     if (result.error) {
       setLoading(false);
-      return toast.error("Google sign-in failed. Try email instead.");
+      toast.error("Google sign-in failed. Try email instead.");
+      return;
     }
     if (result.redirected) return;
     navigate({ to: "/dashboard", replace: true });
